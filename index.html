@@ -79,12 +79,21 @@
     <div class="bannerTrack">
       <div class="banner">
         <div class="bannerCard">
-          <img src="assests/images/banner/banner1.webp" 
+          <picture>
+            <source srcset="assests/images/banner/banner1-480.webp" media="(max-width:768px)">
+            <img src="assests/images/banner/banner1.webp" 
         srcset="assests/images/banner/banner1-480.webp 480w, assests/images/banner/banner1.webp 1280w"
         sizes="(max-width: 600px) 480px, 1280px" alt="Modern Office Building" width="1280" height="720" fetchpriority="high" loading="eager" decoding="async" class="bannerImage"/>
+          </picture>
+          
         </div>
         <div class="bannerCard">
-          <img src="assests/images/banner/banner2.webp" srcset="assests/images/banner/banner2-480.webp 480w, assests/images/banner/banner2.webp 1280w" sizes="(max-width: 600px) 480px, 1280px" alt="Modern Office Building" width="1280" height="720" loading="eager" decoding="async" class="bannerImage"/>
+          <picture>
+            <source srcset="assests/images/banner/banner2-480.webp" media="(max-width:768px)">
+            <img src="assests/images/banner/banner2.webp" 
+        srcset="assests/images/banner/banner1-480.webp 480w, assests/images/banner/banner1.webp 1280w"
+        sizes="(max-width: 600px) 480px, 1280px" alt="Modern Office Building" width="1280" height="720" fetchpriority="high" loading="lazy" decoding="async" class="bannerImage"/>
+          </picture>
         </div>
       </div>
     </div>
@@ -411,6 +420,7 @@
       <div class="amenities-popup-imageholder">
         <img src="" alt="Selected amenity preview" class="amenities-popupimage" id="amenities-popupimage" loading="lazy">
       </div>
+      <div class="amenities-popup-text"></div>
 
       <div class="carousel-arrows">
         <button class="carouselarrowBtn prev" id="amenities_prevBtn" type="button" aria-label="Previous image">‹</button>
@@ -670,7 +680,7 @@
 </footer>
 
 <!-- Side popup button -->
-<button class="sideEnquireBtn popup-trigger" data-heading="Limited Time Offer!">Enquire Now</button>
+<!-- <button class="sideEnquireBtn popup-trigger" data-heading="Limited Time Offer!">Enquire Now</button> -->
 
 <div class="popup-overlay">
  <div class="popupform-container">
@@ -704,13 +714,13 @@
     </div>
 </div>
 
-<button class="sidedownloadBtn popup-trigger" data-heading="Download Brochure!">
+<!-- <button class="sidedownloadBtn popup-trigger" data-heading="Download Brochure!">
   <span class="btn-content">
-    <img src="assests/images/icons/downloadIcon-white.gif" width="24" alt="Download">
+    <img src="assests/images/icons/downloadIcon-white.gif" width="24" alt="Download" loading="lazy">
     <span class="btn-text">Brochure</span>
-    <img src="assests/images/icons/pdf.webp" alt="PDF" width="24" class="pdf-icon">
+    <img src="assests/images/icons/pdf.webp" alt="PDF" width="24" class="pdf-icon" loading="lazy">
   </span>
-</button>
+</button> -->
 <style>
   .sidedownloadBtn {
   display: inline-flex;
@@ -747,12 +757,17 @@
 <div class="ivr-container">
   <div class="ivr-phone-container">
     <a href="tel:+918976997450 " title="Call Support">
-      <img src="assests/images/icons/phoneblack.gif" alt="Call Support" width="35px" height="35px" loading="lazy">
+      <img src="assests/images/icons/phoneblack.gif" alt="Call Support" width="20" height="20" loading="lazy">
       <button>Call Us</button></a>
   </div>
   <div class="ivr-phone-container">
+    <a href="#" class="popup-trigger" data-heading="Download Brochure!">
+      <img src="assests/images/icons/downloadblack.gif" alt="Call Support" width="20" height="20" loading="lazy">
+      <button>Brochure</button></a>
+  </div>
+  <div class="ivr-phone-container">
     <a href="https://api.whatsapp.com/send?phone=+918976997450&text=I want to know more about the property" style="background-color: #25D366;" title="Chat Support">
-      <img src="assests/images/icons/whatsappIcon.gif" alt="WhatsApp Logo" width="35px" height="35px" loading="lazy">
+      <img src="assests/images/icons/whatsappIcon.gif" alt="WhatsApp Logo" width="20" height="20" loading="lazy">
       <button style="color: white;">WhatsApp</button></a>
   </div>
 </div>
