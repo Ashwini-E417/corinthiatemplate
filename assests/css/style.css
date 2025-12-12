@@ -65,7 +65,12 @@ body,button {
 
 .background-binder {
   background-color: #fff;
-  padding: 2rem 0
+  padding: 2rem 0 2rem
+}
+@media (max-width:768px) {
+  .background-binder {
+    padding: 0 0 2rem;
+  }
 }
 
 .navbar1 a:hover,
@@ -368,7 +373,8 @@ nav {
 
 #overview {
   padding: 1rem;
-  border-radius: 10px
+  border-radius: 10px;
+  background-color: #fafafa;
 }
 
 .bannerOfferConatiner {
@@ -415,7 +421,7 @@ nav {
   }
 
   .bannerheading {
-    font-size: 1.5rem;
+    font-size: 18px;
     font-weight: 700;
     color: #000;
     text-shadow: none
@@ -448,6 +454,7 @@ nav {
   .bannerWhatsapp {
     margin: 0 auto
   }
+  
 }
 
 #overview {
@@ -492,7 +499,7 @@ nav {
 .overviewContainer {
   color: #000;
   letter-spacing: .3px;
-  background-color: #fff
+  /* background-color: #fff */
 }
 
 .sectionHeading {
@@ -577,7 +584,7 @@ nav {
 .projectWalkthorugh {
   background-color: #fff;
   padding: 1rem;
-  box-shadow: 0 0 14px -10px #0e2b4c;
+  /* box-shadow: 0 0 14px -10px #0e2b4c; */
   border-radius: 10px
 }
 
@@ -749,8 +756,8 @@ nav {
 
 .amenities-popupimage,
 .gallery-popupimage {
-  width: 700px;
-  height: 400px
+  width: auto;
+  height: 80vh;
 }
 
 .amenitiesDownloadBtn {
@@ -775,7 +782,7 @@ nav {
   margin: 2rem 5rem 1rem;
   background-color: #fff;
   padding: 1rem;
-  box-shadow: 0 0 14px -10px #0e2b4c;
+  /* box-shadow: 0 0 14px -10px #0e2b4c; */
   border-radius: 10px
 }
 
@@ -815,6 +822,29 @@ nav {
   justify-content: space-around;
   padding: 0
 }
+.amenities-popup-text {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+}
+
+@media (max-width:768px) {
+  .carousel-arrows {
+    top: auto;
+    bottom: 0;
+    transform: translateY(200%);
+    justify-content: center;
+    gap: 1rem;
+  }
+  .amenities-popup-text {
+    transform: translate(-50%,100%);
+    font-size: 16px;
+  }
+}
 
 .carouselarrowBtn {
   padding: 0 1rem 0rem;
@@ -825,10 +855,10 @@ nav {
   box-shadow: 0 0 4px
 }
 
-.Plansandprice,
+/* .Plansandprice,
 .map-frame {
   box-shadow: 0 0 14px -10px #0e2b4c
-}
+} */
 
 .about {
   padding: 1rem 5rem;
@@ -1191,12 +1221,12 @@ nav {
 }
 .floorCard:hover {
   box-shadow: 0 0 14px -5px rgb(14,43,76);
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
 }
 
 .floorCard img {
   width: 100%;
-  height: 150px;
+  height: 200px;
   position: relative;
   border-radius: 12px
 }
@@ -1362,12 +1392,16 @@ nav {
 
 @media (max-width:768px) {
   .bannerImage {
-    height: 17rem
+    height: auto
   }
 
   .bannerCard,
   .bannerOverlay {
-    height: 20rem
+    /* height: 20rem */
+    height: 100%;
+  }
+  .bannerOverlay {
+    display: none;
   }
 
   .bannerCard {
@@ -1431,7 +1465,7 @@ nav {
 
   #overview {
     display: block;
-    margin: 1rem;
+    margin: 0 1rem 1rem;
     box-shadow: 0 0 14px -10px #0e2b4c;
     padding: 1rem;
     border-radius: 10px
@@ -1442,12 +1476,14 @@ nav {
   }
 
   .highlightpoints li {
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-size: 15px;
   }
 
   #highlight,
   .projectWalkthorugh {
-    margin: 2rem 1rem
+    margin: 0rem 1rem;
+    box-shadow: none;
   }
 
   .highlightContainer {
@@ -1458,9 +1494,17 @@ nav {
   .highlightlist-container {
     flex: 0 0 100%
   }
+  .highlight-questionheading p {
+    font-size: 15px;
+  }
+  .highlight-questionContainer {
+    background-color: #fafafa;
+    box-shadow: 0 0 14px -10px #0e2b4c;
+    padding-bottom: 1rem;
+  }
 
   .amenities {
-    padding: 1rem 0;
+    padding: 0rem 0 1rem;
     margin: 1rem
   }
 
@@ -1490,12 +1534,19 @@ nav {
   }
 
   .amenitiesCard,
-  .floorCard,
   .galleryCard {
     flex: 0 0 100%;
     box-sizing: border-box;
     padding: 1rem;
     overflow: hidden
+  }
+
+  .floorCard {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 0rem;
+    overflow: hidden;
+    border: 1px solid #555;
   }
 
   .amenities-popupimage,
@@ -1533,10 +1584,13 @@ nav {
   .gallery_nextBtn {
     right: 2%
   }
+  .AnimatePrice {
+    margin-top: 1rem;
+  }
 
   .gallery {
     padding: 1rem 0;
-    margin: 2rem 1rem 0
+    margin: 1rem 1rem 0
   }
 
   .about {
@@ -1587,7 +1641,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 2%;
-    padding: .5rem 1rem
+    padding: 5px
   }
 
   .ivr-phone-container {
@@ -1604,16 +1658,17 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none
+    text-decoration: none;
+    gap: 5px;
   }
 
   .ivr-phone-container a button {
     color: #000;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 600;
     background: 0 0;
     border: 0;
-    padding: .5rem
+    padding: 0px
   }
 }
 
@@ -1754,5 +1809,13 @@ nav {
             }
             .section-header {
               background-color: #cdcdcd;
+              font-size: 0.625rem;
+            }
+            tr {
+              line-height: 1.125rem;
+            }
+            .first-col {
+              font-size: 0.65em;
+              padding: 0.2rem .625rem;
             }
         }
