@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            --colorprimary: #40E0D0;
+        }
+    </style>
+    <style>
+
+        .sideEnquireBtn {
+  position: fixed;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center center;
+  z-index: 9999;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--colorprimary);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  border: 2px solid var(--colorprimary);
+  border-bottom: 0;
+}
+.popupform-container {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(100%,-50%);
+    transform-origin: right center;
+    border: 2px solid var(--colorprimary);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    transition: transform 0.5s ease-in-out;
+    background-color: #fff;
+
+}
+#popupform-heading {
+    color: var(--colorprimary);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0
+}
+.popupform-inputcontainer {
+    /* border: 1px solid; */
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+}
+.popupform-label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+.popupform-name {
+    width: 95%;
+    border: 0;
+    padding: 0.5rem 0.5rem;
+    background-color: #f0f0f0;
+    color: black;
+    border-radius: 5px;
+}
+.popupform-Submitbtn {
+    background: var(--colorprimary);
+    color: #fff;
+    border: 0px;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.popupform-mobileconatiner {
+    display: flex;
+    gap: 2%;
+}
+.popupform-countrycode {
+    flex: 0 0 20%;
+    border: 0;
+    padding: 0.5rem 0.5rem;
+    background-color: #f0f0f0;
+    color: black;
+    border-radius: 5px;
+}
+.popupform-mobile {
+    border: 0;
+    padding: 0.5rem 0.5rem;
+    background-color: #f0f0f0;
+    color: black;
+    border-radius: 5px;
+}
+.popupform-close {
+    color: var(--colorprimary);
+    background-color: transparent;
+    border: 1px solid var(--colorprimary);
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    pointer-events: all;
+}
+    </style>
+</head>
+<body>
+    <div>
+  <button class="sideEnquireBtn popup-trigger" data-heading="Limited Time Offer!">Enquire Now</button>
+    <div class="popupform-container">
+        <button class="popupform-close">&times;</button>
+        <p id="popupform-heading">Limited Time Offer!</p>
+      <form>
+        <div class="popupform-inputcontainer">
+            <label for="name" class="popupform-label">Enter Name:</label>
+            <input type="text" id="name" placeholder="Enter Your Name" class="popupform-name" autocomplete="name">
+        </div>
+        <div class="popupform-inputcontainer">
+            <label for="mobile" style="display: none;" >Enter Mobile Number:</label>
+            <label for="countrycode" class="popupform-label">Enter Mobile Number:</label>
+            <div class="popupform-mobileconatiner">
+                
+                <select id="countrycode" class="popupform-countrycode">
+                    <option value="+91" selected>+91</option>
+                </select>
+                <input type="text" id="mobile" placeholder="Enter Mobile Number" class="popupform-mobile" autocomplete="mobile">
+            </div>
+        </div>
+        <div class="popupform-inputcontainer" style="text-align: center;">
+            <input type="submit" value="Submit" class="popupform-Submitbtn">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let popuptimeout = null;
+    document.querySelector(".popupform-close").addEventListener("click",()=>{
+            clearTimeout(popuptimeout);
+            closepopupform();
+    })
+    document.querySelectorAll(".popup-trigger").forEach((element)=>{
+        element.addEventListener("click",()=>{
+            document.querySelector("#popupform-heading").innerHTML = element.getAttribute("data-heading");
+            document.querySelector(".sideEnquireBtn").style.display= 'none';
+            document.querySelector(".popupform-container").style.transform = 'translate(0,-50%)';
+            popuptimeout = setTimeout(closepopupform,10000);
+        })
+    })
+    function closepopupform() {
+        document.querySelector(".sideEnquireBtn").style.display= 'block';
+            document.querySelector(".popupform-container").style.transform = 'translate(100%,-50%)';
+    }
+    document.querySelector(".popupform-container").addEventListener("mouseover",()=>{
+        clearTimeout(popuptimeout);
+        console.log("clear popup");
+    })
+    document.querySelector(".popupform-container").addEventListener("mouseout",()=>{
+        popuptimeout = setTimeout(closepopupform,10000);
+        console.log("clear popup");
+    })
+    window.addEventListener("load",()=>{
+        setTimeout(() => {
+            document.querySelector(".sideEnquireBtn").style.display= 'none';
+            document.querySelector(".popupform-container").style.transform = 'translate(0,-50%)';
+            popuptimeout = setTimeout(closepopupform,10000);
+        }, 4000);
+    })
+  </script>
+</body>
+</html>

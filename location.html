@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        --colorprimary:blue;
+        }
+    </style>
+    <style>
+        #location {
+            scroll-margin-top: 80px;
+        }
+        .locationWrapper {
+            display: flex;
+            gap: 2%;
+        }
+        .map-frame {
+            width: 40%;
+        }
+        .accordion-wrapper {
+            width: 60%;
+        }
+        /* .accordionBtn-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border-bottom: 1px solid gray;
+        } */
+        .accordionBtn {
+            background-color: transparent;
+            padding: 0.8rem 1rem;
+            border: 0px;
+            cursor: pointer;
+            border-radius: 0 10px;
+            font-size: 0.9rem;
+        }
+        .accordion-active {
+            background-color: var(--colorprimary);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* .mobile-accordionBtn {
+            display: none;
+        } */
+        .accordion-content {
+            line-height: 2rem;
+            list-style-position: outside;
+            display: none;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 0px 0px 0px 10px;
+            background-color: #f0f0f0;
+            padding: 0.8rem;
+            margin-top: 1rem;
+        }
+        .contentactive {
+            display: block;
+            transform: translateY(0%);
+            border: 1px solid var(--colorprimary);
+            border-radius: 0px 10px;
+        }
+        .accordion-content ul li span {
+            color: var(--colorprimary);
+            background-color: transparent;
+        }
+
+        .locationEnquire {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .locationEnquireBtn {
+            padding: 0.8rem 2rem;
+            text-align: center;
+            background-color: var(--colorprimary);
+            color: white;
+            border: 0px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .mobile-accordionBtn {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: white;
+                background-color: var(--colorprimary);
+                border: 0px;
+                border-radius: 0px ;
+                cursor: pointer;
+            }
+            .accordion-arrow {
+                font-size: 1rem;
+                font-weight: 600;
+                transition: transform 0.3s ease;
+                transform: rotate(0deg);
+            }
+            .accordion-wrapper {
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .accordion-active {
+                color: white;
+                background-color: var(--colorprimary);
+                border: 1px solid var(--colorprimary);
+                border-radius: 0px;
+            }
+            .accordion-arrow.accordion-arrow-active {
+                transform: rotate(90deg);
+            }
+            .contentactive {
+                margin-top: 0rem;
+                border-radius: 0px;
+            }
+            .accordion-contentWrapper {
+                margin-bottom: 0.2rem;
+            }
+            .accordion-content ul {
+                margin: 0rem;
+            }
+
+        @media (max-width:900px) {
+            
+            .locationWrapper {
+                display: block;
+                padding: 0 1rem 1rem;
+            }
+            .map-frame {
+                width: 100%;
+            }
+
+            .map-frame iframe{
+                height: 300px;
+            }
+            /* .accordionBtn-wrapper {
+                display: none;
+            } */
+            
+        }
+
+    </style>
+</head>
+<body>
+    <section id="location" class="overviewContainer fade-section" aria-labelledby="location-heading">
+  <h3 class="sectionHeading">Location</h3>
+
+  <div class="locationWrapper">
+    <!-- Google Map -->
+    <div class="map-frame" role="region" aria-label="Google Map showing Lodha Amara location">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2869.492024637345!2d72.9892725!3d19.2332529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bbbcd4f20c15%3A0x4c36bff2609ee7cf!2sLodha%20Amara%20Thane!5e1!3m2!1sen!2sin!4v1751889832611!5m2!1sen!2sin"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        title="Lodha Amara Location Map"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Accordion Info -->
+    <div class="accordion-wrapper">
+
+      <!-- Mobile Accordion Content -->
+      <div class="accordion-contentWrapper">
+        <button class="mobile-accordionBtn accordion-active" type="button" aria-expanded="true" aria-controls="connectivity-content">
+          <span>Connectivity</span>
+          <span class="accordion-arrow accordion-arrow-active">&gt;</span>
+        </button>
+        <div class="accordion-content contentactive" id="connectivity-content">
+          <ul>
+            <li>Chhatrapati Shivaji International Airport – <span>45 minutes</span></li>
+            <li>BKC – <span>50 minutes</span></li>
+            <li>Borivali – <span>20 minutes</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-contentWrapper">
+        <button class="mobile-accordionBtn" type="button" aria-expanded="false" aria-controls="healthcare-content">
+          <span>Healthcare</span>
+          <span class="accordion-arrow">&gt;</span>
+        </button>
+        <div class="accordion-content" id="healthcare-content">
+          <ul>
+            <li>Jupiter Hospital</li>
+            <li>Hiranandani Hospital</li>
+            <li>Currae Multi-speciality Hospital</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-contentWrapper">
+        <button class="mobile-accordionBtn" type="button" aria-expanded="false" aria-controls="education-content">
+          <span>Education</span>
+          <span class="accordion-arrow">&gt;</span>
+        </button>
+        <div class="accordion-content" id="education-content">
+          <ul>
+            <li>Sulochanadevi Singhania School</li>
+            <li>Orchids International School</li>
+            <li>Vasant Vihar School</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-contentWrapper">
+        <button class="mobile-accordionBtn" type="button" aria-expanded="false" aria-controls="entertainment-content">
+          <span>Entertainment Hubs</span>
+          <span class="accordion-arrow">&gt;</span>
+        </button>
+        <div class="accordion-content" id="entertainment-content">
+          <ul>
+            <li>Korum Mall</li>
+            <li>Viviana Mall</li>
+            <li>Cinemax Wonder Mall</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-contentWrapper">
+        <button class="mobile-accordionBtn" type="button" aria-expanded="false" aria-controls="retail-content">
+          <span>Retail</span>
+          <span class="accordion-arrow">&gt;</span>
+        </button>
+        <div class="accordion-content" id="retail-content">
+          <ul>
+            <li>D Mart</li>
+            <li>Reliance Smart</li>
+            <li>Hypercity</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="locationEnquire">
+        <button class="locationEnquireBtn btn-animated popup-trigger" data-heading="Get More Details!" type="button" aria-label="Enquire about location connectivity and access">Enquire Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+        let accordionContent = document.querySelectorAll(".accordion-content");
+        let accordionBtn = document.querySelectorAll(".mobile-accordionBtn");
+        let spanArrow = document.querySelectorAll(".accordion-arrow");
+
+        accordionBtn.forEach((element,index)=>{
+            element.addEventListener("click",()=>{toogleAccordion(index)});
+        })
+
+        function toogleAccordion(index) {
+            if (accordionBtn[index].classList.contains("accordion-active")) {
+                accordionBtn[index].classList.remove("accordion-active");
+            accordionContent[index].classList.remove("contentactive");
+            
+            spanArrow[index].classList.remove("accordion-arrow-active");
+            return;
+            }
+            for (let i=0;i<accordionBtn.length;i++) {
+                accordionBtn[i].classList.remove("accordion-active");
+                accordionContent[i].classList.remove("contentactive");
+                
+                spanArrow[i].classList.remove("accordion-arrow-active");
+            }
+            if (!accordionBtn[index].classList.contains("accordion-active")) {
+            accordionBtn[index].classList.add("accordion-active");
+            accordionContent[index].classList.add("contentactive");
+            spanArrow[index].classList.add("accordion-arrow-active");
+            }
+        }
+
+</script>
+</body>
+</html>

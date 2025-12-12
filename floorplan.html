@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            --colorprimary: #40E0D0;
+        }
+    </style>
+    <style>
+        .floor {
+            padding: 2rem 5rem 1rem;
+            background-color: #fff;
+        }
+        .floorCaurosel {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .floorSlide {
+            width: 100%;
+            display: flex;
+            gap: 5%;
+            flex-wrap: wrap;
+            transition: transform 0.3s ease-in-out;
+            justify-content: space-around;
+        }
+        .floorCard {
+            flex: 0 0 30%;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: transform 0.5s ease-in-out;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .floorCard img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 10px;
+        }
+        .floor-description {
+            color: #fff;
+            background-color: rgb(0, 0, 0, 0.7);
+            z-index: 800;
+            position: absolute;
+            top: 50%;
+            padding: 0.5rem 2rem;
+            /* border-radius: 0px 0px 10px 10px; */
+            font-weight: 600;
+            text-wrap: nowrap;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            /* width: 100%; */
+            margin: 0;
+        }
+
+        
+        .floor_nextBtn {
+            position: absolute;
+            right: 0px;
+        }
+        .floor-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            /* display: flex;
+            justify-content: space-between; */
+            width: 100%;
+            pointer-events: none;
+            display: none;
+        }
+        .arrowBtn {
+            padding: 0 1rem 0.3rem;
+            border: 0px;
+            /* border: 1px solid white; */
+            color: white;
+            font-size: 2rem;
+            pointer-events: auto;
+            background-color: var(--colorprimary);
+            font-weight: 600;
+            cursor: pointer;
+            /* border-radius: 50%; */
+        }
+        .floorCard:hover .floorplan-overlay {
+            opacity: 1;
+        }
+        .floorplan-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .floorplan-overlayBtn {
+            background-color: #fff;
+            color: var(--colorprimary);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-wrap: nowrap;
+            padding: 0.5rem 2rem;
+            font-weight: 600;
+            border: 0px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        @media (max-width:768px) {
+            .floor {
+            padding: 1rem 0rem;
+            }
+            .floorSlide {
+                flex-wrap: nowrap;
+            }
+
+            
+        .floorCard {
+            flex: 0 0 100%;
+            box-sizing: border-box;
+            padding: 1rem;
+            overflow: hidden;
+            }
+
+        
+        .floor-description {
+            color: var(--colorprimary);
+            background-color: rgb(255, 255, 255, 0.9);
+            z-index: 1000;
+           
+            padding: 0.5rem 1rem;
+            
+            font-weight: 600;
+            text-wrap: nowrap;
+            
+            width: fit-content;
+            margin: 0 0 1rem;
+        }
+        .floor-arrows {
+            display: block;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+
+<section class="floorplan-container" id="floorplan" aria-labelledby="floor--detais">
+  <h3 class="sectionHeading">Floor Plan</h3>
+
+  <div class="floorCaurosel" role="region" aria-label="Amenity image carousel">
+    <div class="floorSlide">
+      <div class="floorCard">
+        <img src="assests/images/floor/floor1.webp" alt="Well-equipped gymnasium" width="100%" height="auto" loading="lazy">
+        <p class="floor-description">Gymnasium</p>
+        <div class="floorplan-overlay">
+            <button class="floorplan-overlayBtn">View Floor Plan 1</button>
+        </div>
+      </div>
+      <div class="floorCard">
+        <img src="assests/images/floor/floor1.webp" alt="Indoor games area" width="100%" height="auto" loading="lazy">
+        <p class="floor-description">Indoor Games</p>
+        <div class="floorplan-overlay">
+            <button class="floorplan-overlayBtn">View Floor Plan 1</button>
+        </div>
+      </div>
+      <div class="floorCard">
+        <img src="assests/images/floor/floor1.webp" alt="Kids play area" width="100%" height="auto" loading="lazy">
+        <p class="floor-description">Kids Play Area</p>
+        <div class="floorplan-overlay">
+            <button class="floorplan-overlayBtn">View Floor Plan 1</button>
+        </div>
+      </div>
+      <div class="floorCard">
+        <img src="assests/images/floor/floor1.webp" alt="Swimming pool" width="100%" height="auto" loading="lazy">
+        <p class="floor-description">Infinity Pool</p>
+        <div class="floorplan-overlay">
+            <button class="floorplan-overlayBtn">View Floor Plan 1</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="floor-arrows">
+      <button class="arrowBtn floor_prevBtn" type="button" aria-label="Previous amenity image">‹</button>
+      <button class="arrowBtn floor_nextBtn" type="button" aria-label="Next amenity image">›</button>
+    </div>
+  </div>
+
+</section>
+
+<script>
+    let floorImg = document.querySelectorAll(".floorCard img");
+    let floorSlide = document.querySelector(".floorSlide");
+    let floorCount = floorImg.length - 1;
+    let fcount = 0;
+    let floorCaurosel = setInterval(floorcauroselbegin, 3000);
+
+    function getfloorstep() {
+        return window.innerWidth < 768 ? 105 : 0;
+    }
+
+    function maxfloorSlide() {
+        return window.innerWidth < 768 ? floorCount + 1 : floorCount - 1;
+    }
+
+    function updatefloorSlide() {
+        floorSlide.style.transform = `translateX(-${fcount * getfloorstep()}%)`;
+    }
+
+    function floorcauroselbegin() {
+        updatefloorSlide();
+        fcount = (fcount + 1) % maxfloorSlide();
+    }
+
+    document.querySelector(".floor_prevBtn").addEventListener("click", () => {
+        fcount = (fcount - 1 + maxfloorSlide()) % maxfloorSlide();
+        updatefloorSlide();
+        resetfloorCarousel();
+    });
+
+    document.querySelector(".floor_nextBtn").addEventListener("click", () => {
+        fcount = (fcount + 1) % maxfloorSlide();
+        updatefloorSlide();
+        resetfloorCarousel();
+    });
+
+    function resetfloorCarousel() {
+        clearInterval(floorCaurosel);
+        floorCaurosel = setInterval(floorcauroselbegin, 3000);
+    }
+    window.addEventListener("resize",()=>{
+        updatefloorSlide();
+        return window.innerWidth < 768 ? resetfloorCarousel() : clearInterval(floorCaurosel);
+    })
+
+</script>
+    <!-- <section id="floorplan" class="floorplan">
+        <div>
+            <h3 class="sectionHeading">OverView</h3>
+            <div class="floorplanCarousel-container">
+                <div class="floorplanCarousel">
+                    <div class="floorplan-Card">
+                        <div class="floorplan-item">
+                            <img src="assests/images/floor/floor1.webp" alt="Floor Plan 1" data-label="View Floor Plan 1" class="floorplan-image">
+                            <p class="floorplan-label">View Floor Plan 1</p>
+                        </div>
+                        <div class="floorplan-overlay">
+                            <div class="floorplan-overlaybtn">
+                            <button class="floorplanBtn">View Floor Plan 1</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floorplan-Card">
+                        <div class="floorplan-item">
+                            <img src="assests/images/floor/floor1.webp" alt="Floor Plan 1" data-label="View Floor Plan 1" class="floorplan-image">
+                            <p class="floorplan-label">View Floor Plan 1</p>
+                        </div>
+                        <div class="floorplan-overlay">
+                            <div class="floorplan-overlaybtn">
+                            <button class="floorplanBtn">View Floor Plan 1</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floorplan-Card">
+                        <div class="floorplan-item">
+                            <img src="assests/images/floor/floor1.webp" alt="Floor Plan 1" data-label="View Floor Plan 1" class="floorplan-image">
+                            <p class="floorplan-label">View Floor Plan 1</p>
+                        </div>
+                        <div class="floorplan-overlay">
+                            <div class="floorplan-overlaybtn">
+                            <button class="floorplanBtn">View Floor Plan 1</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floorplan-Card">
+                        <div class="floorplan-item">
+                            <img src="assests/images/floor/floor1.webp" alt="Floor Plan 1" data-label="View Floor Plan 1" class="floorplan-image">
+                            <p class="floorplan-label">View Floor Plan 1</p>
+                        </div>
+                        <div class="floorplan-overlay">
+                            <div class="floorplan-overlaybtn">
+                            <button class="floorplanBtn">View Floor Plan 1</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floorArrows">
+                    <button class="arrowBtn floor_prevBtn">❮</button>
+                    <button class="arrowBtn floor_nextBtn">❯</button>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+</body>
+</html>
