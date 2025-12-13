@@ -69,22 +69,22 @@ function amenitiescauroselbegin() {
 function resetCarousel() {
     clearInterval(amenitiesCaurosel), (amenitiesCaurosel = setInterval(amenitiescauroselbegin, 3e3));
 }
-amenitiesImg.forEach((e, t) => {
-    e.addEventListener("mouseenter", () => clearInterval(amenitiesCaurosel)),
-        e.addEventListener("mouseout", (e) => {
-            e.preventDefault(), amenitiespopupopen || (amenitiesCaurosel = setInterval(amenitiescauroselbegin, 5e3));
-        }),
-        e.addEventListener("click", () => {
-            (document.getElementById("amenities-overlay").style.display = "block"),
-                (document.getElementById("amenities-popupimage").src = e.src),
-                (amenitiespopupopen = !0),
-                (amenitiesIndex = t),
-                clearInterval(amenitiesCaurosel),
-                (document.querySelector(".amenities-popup-text").innerHTML = amenitesdesc[amenitiesIndex].innerHTML),
-                body.classList.add("noscroll");
-        }),
-        e.addEventListener("touchstart", () => {}, { passive: !0 });
-}),
+// amenitiesImg.forEach((e, t) => {
+//     e.addEventListener("mouseenter", () => clearInterval(amenitiesCaurosel)),
+//         e.addEventListener("mouseout", (e) => {
+//             e.preventDefault(), amenitiespopupopen || (amenitiesCaurosel = setInterval(amenitiescauroselbegin, 5e3));
+//         }),
+//         e.addEventListener("click", () => {
+//             (document.getElementById("amenities-overlay").style.display = "block"),
+//                 (document.getElementById("amenities-popupimage").src = e.src),
+//                 (amenitiespopupopen = !0),
+//                 (amenitiesIndex = t),
+//                 clearInterval(amenitiesCaurosel),
+//                 (document.querySelector(".amenities-popup-text").innerHTML = amenitesdesc[amenitiesIndex].innerHTML),
+//                 body.classList.add("noscroll");
+//         }),
+//         e.addEventListener("touchstart", () => {}, { passive: !0 });
+// }),
     document.querySelector(".amenities-popup-close").addEventListener("click", (e) => {
         e.preventDefault(),
             (document.getElementById("amenities-overlay").style.display = "none"),
@@ -150,20 +150,20 @@ function openpopupform() {
         (document.querySelector(".popup-overlay").style.display = "block"),
         body.classList.add("noscroll");
 }
-galleryImg.forEach((e, t) => {
-    e.addEventListener("mouseenter", () => clearInterval(galleryCaurosel)),
-        e.addEventListener("mouseout", () => {
-            gallerypopupopen || (galleryCaurosel = setInterval(gallerycauroselbegin, 5e3));
-        }),
-        e.addEventListener("click", () => {
-            (document.getElementById("gallery-overlay").style.display = "block"),
-                (document.getElementById("gallery-popupimage").src = e.src),
-                (gallerypopupopen = !0),
-                (galleryIndex = t),
-                clearInterval(galleryCaurosel),
-                body.classList.add("noscroll");
-        });
-}),
+// galleryImg.forEach((e, t) => {
+//     e.addEventListener("mouseenter", () => clearInterval(galleryCaurosel)),
+//         e.addEventListener("mouseout", () => {
+//             gallerypopupopen || (galleryCaurosel = setInterval(gallerycauroselbegin, 5e3));
+//         }),
+//         e.addEventListener("click", () => {
+//             (document.getElementById("gallery-overlay").style.display = "block"),
+//                 (document.getElementById("gallery-popupimage").src = e.src),
+//                 (gallerypopupopen = !0),
+//                 (galleryIndex = t),
+//                 clearInterval(galleryCaurosel),
+//                 body.classList.add("noscroll");
+//         });
+// }),
     document.querySelector(".gallery-popup-close").addEventListener("click", (e) => {
         e.preventDefault(),
             (document.getElementById("gallery-overlay").style.display = "none"),
