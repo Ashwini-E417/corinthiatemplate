@@ -80,21 +80,25 @@
       <div class="banner">
         <div class="bannerCard">
           <picture>
-            <source srcset="assests/images/banner/banner1-480.webp" media="(max-width:768px)">
+            <source srcset="assests/images/banner/banner2-480.webp" media="(max-width:768px)">
             <img src="assests/images/banner/banner1.webp" 
-        srcset="assests/images/banner/banner1-480.webp 480w, assests/images/banner/banner1.webp 1280w"
+        srcset="assests/images/banner/banner2-480.webp 480w, assests/images/banner/banner1.webp 1280w"
         sizes="(max-width: 600px) 480px, 1280px" alt="Modern Office Building" width="1280" height="720" fetchpriority="high" loading="eager" decoding="async" class="bannerImage"/>
           </picture>
           
         </div>
         <div class="bannerCard">
           <picture>
-            <source srcset="assests/images/banner/banner2-480.webp" media="(max-width:768px)">
+            <source srcset="assests/images/banner/banner1-480.webp" media="(max-width:768px)">
             <img src="assests/images/banner/banner2.webp" 
-        srcset="assests/images/banner/banner1-480.webp 480w, assests/images/banner/banner1.webp 1280w"
+        srcset="assests/images/banner/banner1-480.webp 480w, assests/images/banner/banner2.webp 1280w"
         sizes="(max-width: 600px) 480px, 1280px" alt="Modern Office Building" width="1280" height="720" fetchpriority="high" loading="lazy" decoding="async" class="bannerImage"/>
           </picture>
         </div>
+      </div>
+      <div class="bannerNav">
+        <button class="bannerPrev"><</button>
+        <button class="bannerNext">></button>
       </div>
     </div>
     <div class="bannerOverlay"></div>
@@ -839,7 +843,7 @@
  <section class="fixed-form-bottom">
   <div class="">
     
-    <form class="bottomform-container">
+    <form class="bottomform-container" id="ModalFormSlug4" onsubmit="event.preventDefault()">
       <div class="bottomform-inputcontainer">
       <h3 class="bottomFormHeading">Enquire Now</h3>
       </div>

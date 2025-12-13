@@ -19,8 +19,8 @@ navitem.forEach((e) => {
         e.addEventListener("click", () => {
             sidebar.classList.remove("openSidebar");
         });
-    }),
-    setInterval(updateBannerCorousel, 5e3);
+    });
+    let bannerCarouselTimer = setInterval(updateBannerCorousel, 5e3);
 let bannerImage = document.querySelectorAll(".bannerImage"),
     bannerContainer = document.querySelector(".banner"),
     bannertransform = 0,
@@ -29,6 +29,20 @@ function updateBannerCorousel() {
     (bannerContainer.style.transform = `translateX(-${100 * bannercount}%)`),
         (bannercount += 1) > bannerImage.length - 1 && (bannercount = 0);
 }
+document.querySelector(".bannerPrev").addEventListener("click", () => {
+    (bannercount = (bannercount - 1 + bannerImage.length) % bannerImage.length),
+        (bannerContainer.style.transform = `translateX(-${100 * bannercount}%)`);
+        clearInterval(bannerCarouselTimer);
+        bannerCarouselTimer = setInterval(updateBannerCorousel, 5e3);
+}),
+    document.querySelector(".bannerNext").addEventListener("click", () => {
+        (bannercount = (bannercount + 1) % bannerImage.length),
+            (bannerContainer.style.transform = `translateX(-${100 * bannercount}%)`);
+            clearInterval(bannerCarouselTimer);
+            bannerCarouselTimer = setInterval(updateBannerCorousel, 5e3);
+    });
+
+
 let readMore = document.querySelectorAll(".readMoreBtn"),
     clampText = document.querySelectorAll(".clampText");
 readMore.forEach((e, t) => {
