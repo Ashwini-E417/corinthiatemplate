@@ -1738,16 +1738,23 @@ nav {
 }
 .tour1-container {
   flex: 0 0 50%;
+  position: relative;
 }
 .tour1-container img {
   width: 100%;
-  height: auto;
+  height: 350px;
   border-radius: 12px;
+  object-fit: cover;
+  position: relative;
 }
 .tour1-container-description {
   text-align: center;
   font-weight: bold;
   margin: 1rem;
+}
+.tour1-container .playButton {
+  width: 90px;
+  height: 60px;
 }
 .sectionHeading-overview {
   font-size: 24px;
@@ -1761,6 +1768,13 @@ nav {
   }
   .tour1-container {
     flex: 0 0 100%;
+    /* height: 200px; */
+  }
+  .tour1-container img {
+    height: 200px;
+  }
+  .tour1-container .playButton {
+    transform: translate(-50%,-100%);
   }
 }
 
