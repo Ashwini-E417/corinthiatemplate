@@ -178,11 +178,58 @@
       <section class="projectWalkthorugh" id="projectWalkthorugh">
         <h3 class="sectionHeading">Project Walkthrough</h3>
         <div class="popup-trigger" data-heading="Request Virtual Site Tour!">
-        <div class="popup-trigger" data-heading="Request Virtual Site Tour!" style="pointer-events: none;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/9NG9YG_lbj4?si=enycYCF0uDet2TgA" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%;" loading="lazy" class="popup-trigger" data-heading="Request Virtual Site Tour" ></iframe>
+        <div class="popup-trigger" data-heading="Request Virtual Site Tour!" style="pointer-events: none;position: relative;">
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/9NG9YG_lbj4?si=enycYCF0uDet2TgA" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%;" loading="lazy" class="popup-trigger" data-heading="Request Virtual Site Tour" ></iframe> -->
+         <img src="assests/images/banner/banner1.webp" alt="Prokect Walkthrough" width="100%" height="450" loading="lazy" class="popup-trigger videoImage" data-heading="Request Virtual Site Tour!">
+         <div class="playButton">
+
+         </div>
         </div>
         </div>
     </section>
+
+    <style>
+      .playButton {
+  width: 110px;
+  height: 80px;
+  border-radius: 10px;
+  position: absolute;
+  cursor: pointer;
+  transition: .3s;
+  /* box-shadow: 0 8px 25px rgba(229, 185, 115, .4) */
+  background-color: red;
+  background-color: red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.playButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px red
+}
+
+.playButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 25px solid #fff;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+.videoImage {
+  height: 450px;
+}
+@media (max-width: 768px) {
+  .videoImage {
+    height: 250px;
+  }
+}
+    </style>
 
     <!-- Floor Plan And Price-->
 
@@ -787,14 +834,14 @@
       <h3 class="bottomFormHeading">Enquire Now</h3>
       </div>
         <div class="bottomform-inputcontainer">
-            <input type="text" id="name" placeholder="Enter Your Name" class="bottomform-name" autocomplete="name" required aria-label="Enter Your Name">
+            <input type="text" id="name" placeholder="Enter Your Name" class="bottomform-name form-name" autocomplete="name" required aria-label="Enter Your Name">
         </div>
         <div class="bottomform-inputcontainer">
             <div class="bottomform-mobileconatiner">
-                <select id="countrycode" class="bottomform-countrycode" required aria-label="select Country Code">
+                <select id="countrycode" class="bottomform-countrycode form-country" required aria-label="select Country Code">
                     <option value="+91" selected>+91</option>
                 </select>
-                <input type="text" id="mobile" placeholder="Enter Mobile Number" class="bottomform-mobile" autocomplete="mobile" required aria-label="Enter Mobile Number">
+                <input type="text" id="mobile" placeholder="Enter Mobile Number" class="bottomform-mobile form-number" autocomplete="mobile" required aria-label="Enter Mobile Number">
             </div>
         </div>
         <div class="bottomform-inputcontainer" >
