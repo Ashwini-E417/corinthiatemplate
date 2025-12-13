@@ -288,7 +288,8 @@ nav {
 }
 
 .bannerTrack {
-  width: 100%
+  width: 100%;
+  position: relative;
 }
 
 .bannerCard {
@@ -975,7 +976,8 @@ nav {
   background-color: rgba(0, 0, 0, .7);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
-  display: none
+  display: none;
+  z-index: 1;
 }
 
 .locationWrapper,
@@ -1904,7 +1906,7 @@ nav {
           position: absolute;
           /* margin: 0 1rem; */
           box-sizing: border-box;
-          z-index: 10;
+          z-index: 1;
         }
         .bannerNav button {
           background-color: rgba(255, 255, 255, 0.7);
